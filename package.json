@@ -1,7 +1,7 @@
 {
   "name": "fruit-machine",
   "version": "1.0.0",
-  "description": "Fruit machine using js and sass ",
+  "description": "Fruit machine using js and sass",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

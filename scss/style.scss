@@ -1,3 +1,7 @@
+$icon_width: 79px;
+$icon_height: 79px;
+$num_icons: 9;
+
 html, body { height: 100%; }
 
 body {
@@ -5,4 +9,11 @@ body {
 	justify-content: center;
 	align-items: center;
 	background: linear-gradient(45deg, grey 0%, lightgray 100%);
+}
+
+.slots {
+    // icon width and height x by 3
+    width: 3 * $icon_width;
+    height: 3 * $icon_height;
+    border: 1px solid black;
 }
