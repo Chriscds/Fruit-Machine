@@ -1,4 +1,3 @@
-
 const   icon_width = 79,
         icon_height = 79,
         // number of icons in the reel
@@ -9,24 +8,42 @@ const   icon_width = 79,
 
         // function to animate reel that can be repeated over the three reels
 const roll = (reel, offset = 0) => {
-    // delta is the amount of rotations of the reel
-    // minimum of 18 icons + a rounded number of random moves of the icon
-    // (offset + 2) adds on to each reel
+        // delta is the amount of rotations of the reel
+        // minimum of 18 icons + a rounded number of random moves of the icon
+        // (offset + 2) adds on to each reel
     const delta = (offset + 2) * num_icons + Math.round(Math.random() * num_icons);
     const style = getComputedStyle(reel),
             backgroundPositionY = parseFloat(style["background-position-y"]);
 
+    return new Promise((resolve, reject) => {
+
             reel.style.transition = `background-position-y ${8 +delta * time_per_icon}ms`;
             reel.style.backgroundPositionY = `${backgroundPositionY + delta * icon_height}px`
+
+            setTimeout(() => {
+                resolve(delta%num_icons)
+        }, 8 + delta * time_per_icon)
+    })
 };
 
 function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
+
+    Promise
+        .all( [...reelsList].map((reel, i) => roll(reel, i)) )
+        .then((deltas) => {
+            console.log(deltas)
+
+            // check win conditions
+
+            setTimeout(rollAll, 3000);
+        })
+
     // spread operator turning reelsList into an array, so we can map over the list
-    [...reelsList].map((reel, i) => {
-        console.log(reel, i)
-        roll(reel, i)
-    })
+    // [ ...reelsList].map((reel, i) => {
+    //     console.log(reel, i);
+    //     roll(reel, i).then((delta) => { console.log(delta) })
+    // })
 }
 
 rollAll();
