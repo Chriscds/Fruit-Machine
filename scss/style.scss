@@ -13,7 +13,19 @@ body {
 
 .slots {
     // icon width and height x by 3
-    width: 3 * $icon_width;
+    width: 3.5 * $icon_width;
     height: 3 * $icon_height;
     border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3 * $icon_height;
+    // nested class within .slots class
+    .reel{
+        border: 1px solid black;
+        width: $icon_width;
+        height: 3 * $icon_height;
+        background-image: url(https://assets.codepen.io/439000/slotreel.webp);
+        background-repeat: repeat-y; // repeats only vertically
+        background-position: 0 0; // keeps fruit image centered to start
+    }
 }
