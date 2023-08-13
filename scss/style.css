@@ -1,12 +1,12 @@
 .debug {
   position: fixed;
-  top: 44px;
+  top: 84px;
   left: 50%;
   transform: translateX(-50%);
   padding: 4px;
-  background: rgb(196, 194, 194);
-  font-family: monospace;
-  font-size: 1.6rem;
+  color: rgb(217, 213, 213);
+  font-family: "Akronim", cursive;
+  font-size: 1.5rem;
 }
 
 html, body {

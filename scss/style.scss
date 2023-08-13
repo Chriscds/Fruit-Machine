@@ -4,14 +4,15 @@ $num_icons: 9;
 
 .debug {
 	position: fixed; 
-    top: 44px; 
+    top: 84px; 
     left: 50%; 
     transform: translateX(-50%); 
     padding: 4px; 
-    background: rgb(196, 194, 194);
+    color: rgb(217, 213, 213);
+    // background: rgb(196, 194, 194);
     // border: 1px solid rgba(black, 0.3); 
-    font-family: monospace; 
-    font-size: 1.6rem;
+    font-family: 'Akronim', cursive;
+    font-size: 1.5rem;
 }
 
 html, body { height: 100%; }

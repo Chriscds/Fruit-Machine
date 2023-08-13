@@ -35,7 +35,7 @@ const roll = (reel, offset = 0) => {
 
 function rollAll() {
 
-    debugEl.textContent = 'rolling...';
+    debugEl.textContent = 'Rolling...';
 
     const reelsList = document.querySelectorAll('.slots > .reel');
 
