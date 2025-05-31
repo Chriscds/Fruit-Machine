@@ -8,13 +8,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet">
 
-    <title>Fruit Machine</title>
+    <title>Fruit Machine 🍒</title>
 </head>
 <body>
     <div class="slots">
         <div class="reel"></div>
         <div class="reel"></div>
         <div class="reel"></div>
+    </div>
+
+    <div class="controls">
+       <div id="balance">Balance: £0.00</div>
+       <div id="games-left">Rolls Left: 0</div>
+       <button onclick="addFunds(1)">Add £1</button>
+       <button onclick="addFunds(2)">Add £2</button>
+       <button onclick="addFunds(5)">Add £5</button>
+       <button id="roll-button" onclick="rollAll()" disabled>Roll</button>
+       <button id="play-again" onclick="resetGame()" disabled>Play Again</button>
     </div>
 
     <div id="debug" class="debug"></div>
