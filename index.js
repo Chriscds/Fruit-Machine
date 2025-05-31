@@ -9,6 +9,13 @@ const debugEl = document.getElementById('debug'),
     indexes = [0, 0, 0],
     iconMap = ["Banana", "Seven","Cherries", "Plum", "Orange", "Bell", "Bar", "Lemon", "Melon"];
 
+    let balance = 0;
+    let gamesLeft = 0;
+
+    const balanceEl = document.getElementById('balance');
+    const gamesLeftEl = document.getElementById('games-left');
+    const rollButton = document.getElementById('roll-button');
+    const playAgainButton = document.getElementById('play-again-button');
         // function to animate reel that can be repeated over the three reels
 const roll = (reel, offset = 0) => {
         // delta is the amount of rotations of the reel
@@ -32,6 +39,21 @@ const roll = (reel, offset = 0) => {
         }, 8 + delta * time_per_icon)
     })
 };
+
+function updateUI() {
+    balanceEl.textContent = `Balance: £${balance.toFixed(2)}`;
+    gamesLeftEl.textContent = `Games left: ${gamesLeft}`;
+    rollButton.disabled = gamesLeft <= 0;
+    playAgainButton.style.display = gamesLeft <= 0 && balance < 0.25 ? "inline-block" : "none";
+}
+
+function addFunds(amount) {
+    balance += amount;
+    gamesLeft = Math.floor(balance / 0.25);
+    updateUI();
+}
+
+// TODO: Disable adding funds after the game starts
 
 function rollAll() {
 
